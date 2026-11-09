@@ -1,12 +1,18 @@
 {
-  "name": "twojksiegowy-cms-oauth",
-  "version": "2.0.0",
+  "name": "@adrianub/cms",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
+  "dependencies": {
+    "simple-oauth2": "~5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.14.0",
+    "@types/simple-oauth2": "^5.0.2"
+  },
   "scripts": {
     "test": "node --test",
     "dev": "npx --yes wrangler@4 dev",
     "deploy": "npx --yes wrangler@4 deploy"
-  },
-  "devDependencies": {}
+  }
 }
