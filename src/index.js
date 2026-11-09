@@ -50,7 +50,9 @@ function getConfig(env, requestUrl) {
   if (cms.protocol !== "https:" || cms.origin !== cmsOrigin.replace(/\/$/, "")) {
     throw new Error("CMS_ORIGIN must be an HTTPS origin without a path");
   }
-  if (redirect.protocol !== "https:" || redirect.origin !== current.origin ||
+  const localHttp = redirect.protocol === "http:" &&
+    (redirect.hostname === "localhost" || redirect.hostname === "127.0.0.1");
+  if ((!localHttp && redirect.protocol !== "https:") || redirect.origin !== current.origin ||
       redirect.pathname !== "/callback" || redirect.search || redirect.hash) {
     throw new Error("OAUTH_REDIRECT_URI must match this Worker origin and /callback");
   }
