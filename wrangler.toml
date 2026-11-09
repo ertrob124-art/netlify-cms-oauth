@@ -1,0 +1,7 @@
+name = "twojksiegowy-cms-oauth"
+main = "src/index.js"
+compatibility_date = "2026-11-09"
+workers_dev = true
+
+# Set CMS_ORIGIN, OAUTH_REDIRECT_URI and OAuth credentials separately
+# for test and production environments. Keep the Client Secret as a Secret.

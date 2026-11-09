@@ -1,14 +1,18 @@
 {
   "name": "@adrianub/cms",
-  "author": "Adrián UB",
   "version": "1.0.0",
-  "license": "MIT",
   "private": true,
+  "type": "module",
   "dependencies": {
     "simple-oauth2": "~5.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.14.0",
     "@types/simple-oauth2": "^5.0.2"
+  },
+  "scripts": {
+    "test": "node --test",
+    "dev": "npx --yes wrangler@4 dev",
+    "deploy": "npx --yes wrangler@4 deploy"
   }
 }
