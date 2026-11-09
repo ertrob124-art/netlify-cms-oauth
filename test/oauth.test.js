@@ -2,14 +2,15 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { constantTimeEqual, readCookie } from "../src/index.js";
 
-test("constantTimeEqual accepts equal values", () => {
-  assert.equal(constantTimeEqual("same-state", "same-state"), true);
+test("constantTimeEqual accepts equal 256-bit base64url states", () => {
+  const state = "a".repeat(43);
+  assert.equal(constantTimeEqual(state, state), true);
 });
 
-test("constantTimeEqual rejects different values and lengths", () => {
-  assert.equal(constantTimeEqual("state-a", "state-b"), false);
-  assert.equal(constantTimeEqual("short", "longer"), false);
-  assert.equal(constantTimeEqual(null, "state"), false);
+test("constantTimeEqual rejects different values and invalid lengths", () => {
+  assert.equal(constantTimeEqual("a".repeat(43), "b".repeat(43)), false);
+  assert.equal(constantTimeEqual("short", "short"), false);
+  assert.equal(constantTimeEqual(null, "a".repeat(43)), false);
 });
 
 test("readCookie extracts a named cookie", () => {
