@@ -1,14 +1,12 @@
 {
-  "name": "@adrianub/cms",
-  "author": "Adrián UB",
-  "version": "1.0.0",
-  "license": "MIT",
+  "name": "twojksiegowy-cms-oauth",
+  "version": "2.0.0",
   "private": true,
-  "dependencies": {
-    "simple-oauth2": "~5.0.0"
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "dev": "npx wrangler dev",
+    "deploy": "npx wrangler deploy"
   },
-  "devDependencies": {
-    "@types/node": "^18.14.0",
-    "@types/simple-oauth2": "^5.0.2"
-  }
+  "devDependencies": {}
 }
