@@ -1,0 +1,9 @@
+name = "twojksiegowy-cms-oauth"
+main = "src/index.js"
+compatibility_date = "2026-11-09"
+workers_dev = true
+
+[vars]
+CMS_ORIGIN = "https://www.twojksiegowy.eu"
+# Set OAUTH_REDIRECT_URI as a secret/variable after the Worker URL is assigned:
+# https://<worker-name>.<account-subdomain>.workers.dev/callback
