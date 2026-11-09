@@ -18,7 +18,7 @@ Ustaw w Cloudflare Worker → Settings → Variables and Secrets:
 
 - `OAUTH_GITHUB_CLIENT_ID` — Client ID testowej GitHub OAuth App.
 - `OAUTH_GITHUB_CLIENT_SECRET` — Client Secret testowej aplikacji jako **Secret**.
-- `CMS_ORIGIN` — dokładnie `https://www.twojksiegowy.eu`.
+- `CMS_ORIGIN` — dokładny origin panelu CMS, bez ścieżki. Dla testów ustaw origin adresu preview strony; dopiero przy przełączeniu produkcyjnym ustaw `https://www.twojksiegowy.eu`.
 - `OAUTH_REDIRECT_URI` — dokładny adres callback Worker, np. `https://twojksiegowy-cms-oauth.<subdomain>.workers.dev/callback`.
 
 Nie wpisuj Client Secret do `wrangler.toml`, GitHub ani kodu źródłowego.
@@ -33,7 +33,7 @@ npm test
 npx wrangler dev
 ```
 
-Do lokalnego testu ustaw zmienne w lokalnym pliku `.dev.vars` (plik nie może trafić do Git):
+Do lokalnego testu ustaw zmienne w lokalnym pliku `.dev.vars` (plik nie może trafić do Git). Dla lokalnego CMS użyj jego originu HTTPS; dla testu przez preview ustaw origin preview strony:
 ```
 OAUTH_GITHUB_CLIENT_ID=...
 OAUTH_GITHUB_CLIENT_SECRET=...
