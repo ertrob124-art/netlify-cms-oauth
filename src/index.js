@@ -109,6 +109,11 @@ function htmlResponse(status, content, cmsOrigin, extraHeaders = {}) {
 }
 
 async function startOAuth(request, env) {
+  const requestedProvider = new URL(request.url).searchParams.get("provider");
+  if (requestedProvider !== "github") {
+    return textResponse("Unsupported OAuth provider", 400);
+  }
+
   let config;
   try {
     config = getConfig(env, request.url);
